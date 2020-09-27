@@ -26,8 +26,7 @@ def recv_message(pipe, receiver, r_vector):
 
     id, vector = pipe.recv()
     for i in range (0, len(vector)):
-        if i != (receiver-1):
-            r_vector[i] += vector[i]
+        r_vector[i] = max(r_vector[i], vector[i])
     print('Message received at ', receiver, ', vector: ', r_vector)
     return r_vector
 
